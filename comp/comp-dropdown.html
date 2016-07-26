@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<!-- 父路径 -->
+		<!-- <base href="/demo/"> -->
+		<!-- 页面编码 -->
+		<meta charset="UTF-8">
+		<!-- 响应式布局 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!-- Bootstrap样式文件 -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<!-- 自定义样式文件 -->
+		<link rel="stylesheet" href="styles/site.css">
+		<!-- Jquery脚本文件 -->
+		<script src="scripts/jquery.min.js"></script>
+		<!-- Bootstrap脚本插件文件 -->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<!-- 标签名称 -->
+		<title>component</title>
+	</head>
+	<body class="container">
+		<header class="page-header">
+			<h1 class="text-capitalize">glyphicon</h1>
+		</header>
+
+		<div>
+
+			<div class="dropdown">
+				<button data-toggle="dropdown" class="btn btn-default" type="button">
+					员工管理
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu dropdown-menu-left">
+					<li class="dropdown-header">
+						<a href="javascript:void(0);">日常工作</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">员工列表</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">新增员工</a>
+					</li>
+					<li class="divider"></li>
+					<li class="dropdown-header">
+						<a href="javascript:void(0);">人事工作</a>
+					</li>
+					<li>
+						<a href="javascript:void(0);">合同变迁</a>
+					</li>
+					<li class="disabled">
+						<a href="javascript:void(0);">入职办理</a>
+					</li>
+				</ul>
+			</div>
+
+			<form class="navbar-form">
+				<input id="name" type="text" class="form-control" placeholder="Enter name" />
+				<button id="btnLogin" type="button" class="btn btn-primary btn-block">
+					Login
+				</button>
+			</form>
+
+			<script>
+				$(function() {
+					$("#btnLogin").click(function() {
+						if ($("#name").val() == "linda") {
+							$(".dropdown-menu li:last").removeClass("disabled");
+						} else {
+							$(".dropdown-menu li:last").addClass("disabled");
+						}
+					});
+				});
+			</script>
+
+		</div>
+
+		<footer class="navbar-fixed-bottom text-center">
+			&copy; 2015 <span class="glyphicon glyphicon-copyright-mark"></span>
+		</footer>
+	</body>
+</html>

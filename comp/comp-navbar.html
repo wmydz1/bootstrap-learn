@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<!-- 父路径 -->
+		<!-- <base href="/demo/"> -->
+		<!-- 页面编码 -->
+		<meta charset="UTF-8">
+		<!-- 响应式布局 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!-- Bootstrap样式文件 -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<!-- 自定义样式文件 -->
+		<link rel="stylesheet" href="styles/site.css">
+		<!-- Jquery脚本文件 -->
+		<script src="scripts/jquery.min.js"></script>
+		<!-- Bootstrap脚本插件文件 -->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<!-- 标签名称 -->
+		<title>component</title>
+	</head>
+	<body class="container">
+		<header class="page-header">
+			<h1 class="text-capitalize">dropdown</h1>
+		</header>
+
+		<div>
+
+			<nav class="navbar navbar-default navbar-fixed-top">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<div class="navbar-brand">
+							<a href="#">MiniBlog</a>
+						</div>
+						<button data-target="#divNav" data-toggle="collapse" class="navbar-toggle" type="button">
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<div class="collapse navbar-collapse" id="divNav">
+						<ul class="nav navbar-nav">
+							<li>
+								<a href="#"> <span class="glyphicon glyphicon-home"></span> Home</a>
+							</li>
+							<li>
+								<a href="#"> <span class="glyphicon glyphicon-music"></span> Music</a>
+							</li>
+							<li>
+								<p class="navbar-text">
+									Site Search
+								</p>
+							</li>
+							<li>
+								<form class="navbar-form">
+									<input class="form-control" type="search" placeholder="Enter search" />
+									<button type="submit" class="btn btn-default">
+										<span class="glyphicon glyphicon-search"></span>
+									</button>
+								</form>
+							</li>
+							<li>
+								<a href="#" class="navbar-link">Help</a>
+							</li>
+						</ul>
+
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="#"> <span class="glyphicon glyphicon-home"></span> Email</a>
+							</li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+								<ul class="dropdown-menu">
+									<li>
+										<a href="#">Action</a>
+									</li>
+									<li>
+										<a href="#">Another action</a>
+									</li>
+									<li>
+										<a href="#">Something else here</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<a href="#">Separated link</a>
+									</li>
+									<li class="divider"></li>
+									<li>
+										<a href="#">One more separated link</a>
+									</li>
+								</ul>
+							</li>
+
+							<button class="btn btn-info navbar-btn" type="button">
+								Suggest
+							</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+		</div>
+
+		<footer class="navbar-fixed-bottom text-center">
+			&copy; 2015 <span class="glyphicon glyphicon-copyright-mark"></span>
+		</footer>
+	</body>
+</html>

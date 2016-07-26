@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<!-- 父路径 -->
+		<!-- <base href="/demo/"> -->
+		<!-- 页面编码 -->
+		<meta charset="UTF-8">
+		<!-- 响应式布局 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!-- Bootstrap样式文件 -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<!-- 自定义样式文件 -->
+		<link rel="stylesheet" href="styles/site.css">
+		<!-- Jquery脚本文件 -->
+		<script src="scripts/jquery.min.js"></script>
+		<!-- Bootstrap脚本插件文件 -->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<!-- 标签名称 -->
+		<title>component</title>
+	</head>
+	<body class="container">
+		<header class="page-header">
+			<h1 class="text-capitalize">dropdown</h1>
+		</header>
+		
+		<div>
+						
+			<button type="button" class="btn btn-default"
+					data-toggle="collapse"
+					data-target="#divPanel">Show | Hide</button>
+					
+			<div id="divPanel" class="collapse well">
+				<h3>Header</h3>
+				<p>这是一个可折叠和展开的面板</p>
+			</div>
+			
+			<div class="panel-group" id="accordion">
+				<!-- 计算机类面板 -->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<a data-toggle="collapse" data-parent="#accordion" 
+						   href="#collapseOne">
+							计算机类
+						</a>
+					</div>					
+					<div id="collapseOne" class="panel-collapse collapse">
+						<div class="panel-body">
+							<div class="list-group">
+								<a href="#" class="list-group-item">HTML</a>
+								<a href="#" class="list-group-item">JS</a>
+								<a href="#" class="list-group-item">BS</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- 文学类面板 -->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+							文学类
+						</a>
+					</div>					
+					<div id="collapseTwo" class="panel-collapse collapse in">
+						<div class="panel-body">
+							<div class="list-group">
+								<a href="#" class="list-group-item">西游记</a>
+								<a href="#" class="list-group-item">三国演义</a>
+								<a href="#" class="list-group-item">红楼梦</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<footer class="navbar-fixed-bottom text-center">
+			&copy; 2015 <span class="glyphicon glyphicon-copyright-mark"></span>
+		</footer>
+	</body>
+</html>

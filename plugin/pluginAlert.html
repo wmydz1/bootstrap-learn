@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<!-- 父路径 -->
+		<!-- <base href="/demo/"> -->
+		<!-- 页面编码 -->
+		<meta charset="UTF-8">
+		<!-- 响应式布局 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!-- Bootstrap样式文件 -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<!-- 自定义样式文件 -->
+		<link rel="stylesheet" href="styles/site.css">
+		<!-- Jquery脚本文件 -->
+		<script src="scripts/jquery.min.js"></script>
+		<!-- Bootstrap脚本插件文件 -->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<!-- 标签名称 -->
+		<title>component</title>
+	</head>
+	<body class="container">
+		<header class="page-header">
+			<h1 class="text-capitalize">dropdown</h1>
+		</header>
+		
+		<div>
+			
+			<div id="divAlert" class="alert fade in alert-danger hide">				
+				<p class="lead">评论内容不允许为空</p>			
+			</div>
+									
+			<form>
+				<div class="form-group">
+					<label for="message">评论内容</label>
+					<textarea id="txtMessage" rows="5" class="form-control"></textarea>					
+				</div>
+				<p>
+					<button id="btnSubmit" class="btn-block btn btn-primary" type="button">提交</button>
+				</p>
+			</form>
+			
+			<ul id="divList" class="list-group">
+				
+			</ul>
+			
+			<script>
+				$(function(){					
+					$("#btnSubmit").click(function(){
+						var msg = $("#txtMessage").val();
+						if(msg==""){							
+							$("#divAlert").removeClass()
+								.addClass("alert fade in alert-danger");
+							$("#divAlert p").html("提交失败");		
+						}else{		
+							$("#divAlert").removeClass()
+								.addClass("alert fade in alert-success");
+							$("#divAlert p").html("提交成功");					
+							$("#divList").prepend(
+								$("<span>").addClass("media glyphicon")
+								.append($("<li>")
+								.addClass("list-group-item")
+								.html(msg))								
+							);
+						}
+					});
+				});
+			</script>
+			
+		</div>
+		
+		<footer class="navbar-fixed-bottom text-center">
+			&copy; 2015 <span class="glyphicon glyphicon-copyright-mark"></span>
+		</footer>
+	</body>
+</html>

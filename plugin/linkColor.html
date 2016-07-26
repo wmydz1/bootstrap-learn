@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>linkColor</title>
+		<style>
+			a{ color: #f00; transition: color 1s linear; }
+			a:hover{ color: #abc; }
+			.circle{
+				background-color: #f00;
+				border-radius: 50%;
+				height: 100px;
+				width: 100px;
+				margin-left: 220px;
+				transition: transform 1s linear;
+			}
+			.circle.left{
+				transform: translateX(-200px);
+			}
+			.circle.right{
+				transform: translateX(200px);
+			}
+		</style>
+		<script src="scripts/jquery.js"></script>
+		<script src="scripts/transition.js"></script>
+	</head>
+	<body>
+		<a href="#">Hello Transition.js</a>
+		<div class="circle"></div>
+		<script>
+			$(function(){
+				$(".circle")
+					.on("transitionend",function(){
+						$(this).html("<br>"+new Date());
+					})
+					.click(function(){
+						$(this).removeClass("right").addClass("left");
+					})
+					.dblclick(function(){
+						$(this).removeClass("left").addClass("right");
+					});
+			});
+		</script>
+	</body>
+</html>

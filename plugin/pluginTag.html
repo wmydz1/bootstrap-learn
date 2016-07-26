@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<!-- 父路径 -->
+		<!-- <base href="/demo/"> -->
+		<!-- 页面编码 -->
+		<meta charset="UTF-8">
+		<!-- 响应式布局 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!-- Bootstrap样式文件 -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<!-- 自定义样式文件 -->
+		<link rel="stylesheet" href="styles/site.css">
+		<!-- Jquery脚本文件 -->
+		<script src="scripts/jquery.min.js"></script>
+		<!-- Bootstrap脚本插件文件 -->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<!-- 标签名称 -->
+		<title>component</title>
+	</head>
+	<body class="container">
+		<header class="page-header">
+			<h1 class="text-capitalize">dropdown</h1>
+		</header>
+		
+		<div>
+		
+			<div class="row">
+				<div class="col-sm-3">
+					<ul class="nav nav-pills nav-stacked">
+						<li class="active">
+							<a data-toggle="tab" href="#comp">
+								计算机类
+								<span class="badge pull-right">106</span>
+							</a>
+						</li>
+						<li><a data-toggle="tab" href="#cult">文学类
+							<span class="badge pull-right">88</span>
+							</a></li>
+						<li><a data-toggle="tab" href="#chrd">儿童类
+							<span class="badge pull-right">90</span>
+							</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-9">
+					<div class="tab-content">
+						<div id="comp" class="tab-pane fade in active">计算机类下所有的图书</div>
+						<div id="cult" class="tab-pane fade">文学类类下所有的图书</div>
+						<div id="chrd" class="tab-pane fade">儿童类类下所有的图书</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<footer class="navbar-fixed-bottom text-center">
+			&copy; 2015 <span class="glyphicon glyphicon-copyright-mark"></span>
+		</footer>
+	</body>
+</html>

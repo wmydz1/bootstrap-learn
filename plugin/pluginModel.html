@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<!-- 父路径 -->
+		<!-- <base href="/demo/"> -->
+		<!-- 页面编码 -->
+		<meta charset="UTF-8">
+		<!-- 响应式布局 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!-- Bootstrap样式文件 -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<!-- 自定义样式文件 -->
+		<link rel="stylesheet" href="styles/site.css">
+		<!-- Jquery脚本文件 -->
+		<script src="scripts/jquery.min.js"></script>
+		<!-- Bootstrap脚本插件文件 -->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<!-- 标签名称 -->
+		<title>component</title>
+	</head>
+	<body class="container">
+		<header class="page-header">
+			<h1 class="text-capitalize">modal</h1>
+		</header>
+		
+		<div>
+						
+			<button class="btn btn-default" data-toggle="modal"					
+					data-target="#divModal">
+				登录
+			</button>
+			<button id="btnLogin" class="btn btn-danger">Login</button>
+			
+			<div class="modal fade" data-hello="Tarena TM" id="divModal" data-keyboard="false">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h3 class="modal-title">
+								<span class="glyphicon glyphicon-log-in"></span>
+								User Login								
+							</h3>
+						</div>
+						<div class="modal-body">
+							<form>
+								<div class="form-group">
+									<label for="username">User Name</label>
+									<input id="username" type="text" class="form-control" placeholder="Enter username" required />
+								</div>
+								<div class="form-group">
+									<label for="password">User Password</label>
+									<input id="password" type="text" class="form-control" placeholder="Enter password" required />
+								</div>
+								<p class="text-right">
+									<button type="submit" class="btn btn-primary">Login</button>
+								</p>
+							</form>
+						</div>
+						<div class="modal-footer"></div>
+					</div>
+				</div>
+			</div>
+			
+			<script>
+				$(function(){
+					$("#btnLogin").click(function(){
+						$('#divModal').modal({
+						  keyboard: false
+						});
+					});
+					$('#divModal').on('show.bs.modal', function (e) {
+                        $(".modal-footer").html(
+                        	$(this).attr("data-hello")
+                        );
+					})
+				});
+			</script>
+			
+		</div>
+		
+		<footer class="navbar-fixed-bottom text-center">
+			&copy; 2015 <span class="glyphicon glyphicon-copyright-mark"></span>
+		</footer>
+	</body>
+</html>

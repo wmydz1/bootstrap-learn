@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<!-- 父路径 -->
+		<!-- <base href="/demo/"> -->
+		<!-- 页面编码 -->
+		<meta charset="UTF-8">
+		<!-- 响应式布局 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!-- Bootstrap样式文件 -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<!-- 自定义样式文件 -->
+		<link rel="stylesheet" href="styles/site.css">
+		<!-- Jquery脚本文件 -->
+		<script src="scripts/jquery.min.js"></script>
+		<!-- Bootstrap脚本插件文件 -->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<!-- 标签名称 -->
+		<title>component</title>
+	</head>
+	<body class="container">
+		<header class="page-header">
+			<h1 class="text-capitalize">dropdown</h1>
+		</header>
+
+		<div>
+
+			<div class="row">
+				<div class="col-sm-3">
+					<!-- 折叠面板 -->
+					<div class="panel-group" id="accordion">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#comp"> 计算机类 </a></h4>
+							</div>
+							<div id="comp" class="panel-collapse collapse in">
+								<div>
+
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-info">
+							<div class="panel-heading">
+								<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#cult"> 文学类 </a></h4>
+							</div>
+							<div id="cult" class="panel-collapse collapse">
+								<div>
+
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-success">
+							<div class="panel-heading">
+								<h4 class="panel-title"><a data-toggle="collapse" data-parent="#accordion" href="#chrd"> 儿童类 </a></h4>
+							</div>
+							<div id="chrd" class="panel-collapse collapse">
+								<div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-9">
+					<div class="panel panel-info">
+						<div class="panel-heading">
+
+						</div>
+						<div class="panel-body">
+							<blockquote>
+								<h2><span id="title"></span></h2>
+								<footer>
+									作者：<span id="author"></span>
+								</footer>
+							</blockquote>
+							<div class="row">
+								<div class="col-sm-6">
+									<img id="img" alt="" class="img-responsive img-rounded">
+								</div>
+								<div class="col-sm-6">
+									<p class="lead">
+										价格：
+										<span class="glyphicon glyphicon-usd"></span>
+										<span id="price"></span>
+									</p>
+									<p class="lead">
+										出版日期：
+										<code>
+											<span id="pubdate"></span>
+										</code>
+									</p>
+									<p class="lead">
+										类别：
+										<span id="category"></span>
+									</p>
+									<p class="text-right">
+										<button type="button" class="btn btn-primary btn-block btn-lg">
+											<span class="glyphicon glyphicon-shopping-cart"></span>
+											Add to cart
+										</button>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<script>
+				var comps = new Array();
+				var cults = new Array();
+				var chrds = new Array();
+				var a = 0;
+				var b = 0;
+				var c = 0;
+				function showBookInfo(book) {
+					$("#title").html(book.Title);
+					$("#author").html(book.Author);
+					$("#price").html(book.Price);
+					$("#pubdate").html(book.PubDate);
+					$("#category").html(book.Category.Name);
+					$("#img").attr("src", "images/Koala.jpg");
+				}
+
+				$(function() {
+					$.getJSON("json/books.json", null, function(data) {
+
+						$(data).each(function(index, book) {
+							if (book.Category.Id == 1) {
+								comps[a++] = book;
+							}
+							if (book.Category.Id == 2) {
+								cults[b++] = book;
+							}
+							if (book.Category.Id == 3) {
+								chrds[c++] = book;
+							}
+						});
+						$(comps).each(function(index, book) {
+							$("#comp").append($("<div>").addClass("list-group").append($("<a>").addClass("list-group-item").html(book.Title).attr("href", "javascript:void(0)").data("b", book).on("click", function() {
+								var b = $(this).data("b");
+								showBookInfo(b);
+							})));
+						});
+						$(cults).each(function(index, book) {
+							$("#cult").append($("<div>").addClass("list-group").append($("<a>").addClass("list-group-item").html(book.Title).attr("href", "javascript:void(0)").data("b", book).on("click", function() {
+								var b = $(this).data("b");
+								showBookInfo(b);
+							})));
+						});
+						$(chrds).each(function(index, book) {
+							$("#chrd").append($("<div>").addClass("list-group").append($("<a>").addClass("list-group-item").html(book.Title).attr("href", "javascript:void(0)").data("b", book).on("click", function() {
+								var b = $(this).data("b");
+								showBookInfo(b);
+							})));
+						});
+						$("a[href='#comp']").append($("<span>").addClass("badge pull-right").html(comps.length));
+						$("a[href='#cult']").append($("<span>").addClass("badge pull-right").html(cults.length));
+						$("a[href='#chrd']").append($("<span>").addClass("badge pull-right").html(chrds.length));
+					});
+				});
+			</script>
+
+		</div>
+
+		<footer class="navbar-fixed-bottom text-center">
+			&copy; 2015 <span class="glyphicon glyphicon-copyright-mark"></span>
+		</footer>
+	</body>
+</html>

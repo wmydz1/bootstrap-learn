@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<!-- 父路径 -->
+		<!-- <base href="/demo/"> -->
+		<!-- 页面编码 -->
+		<meta charset="UTF-8">
+		<!-- 响应式布局 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!-- Bootstrap样式文件 -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<!-- 自定义样式文件 -->
+		<link rel="stylesheet" href="styles/site.css">
+		<!-- Jquery脚本文件 -->
+		<script src="scripts/jquery.min.js"></script>
+		<!-- Bootstrap脚本插件文件 -->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<!-- 标签名称 -->
+		<title>component</title>
+	</head>
+	<body class="container">
+		<header class="page-header">
+			<h1 class="text-capitalize">dropdown</h1>
+		</header>
+		
+		<div>
+						
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped active" style="width:30%">30%</div>
+			</div>
+			<div class="progress">
+				<div class="active progress-bar progress-bar-striped progress-bar-danger" style="width:40%">
+					40%
+				</div>
+			</div>
+			
+			<div class="progress">
+				<div id="divBar" class="progress-bar progress-bar-striped active" style="width:0%">0%</div>
+			</div>
+			<button id="btnStart" class="btn btn-default">Start</button>
+			<script>
+				var width = 0;
+				function changeBar(){
+					$("#divBar")
+						.attr("style","width:"+width+"%")
+						.html(width+"%");
+					if(width<100){
+						width+=1;
+					}
+				}
+				function startBar(){
+					setInterval("changeBar()",100);
+				}
+				$(function(){
+					$("#btnStart").click(function(){
+						startBar();
+					});
+				});
+			</script>
+			
+		</div>
+		
+		<footer class="navbar-fixed-bottom text-center">
+			&copy; 2015 <span class="glyphicon glyphicon-copyright-mark"></span>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,11 @@
+﻿body {
+    padding-bottom: 70px;
+}
+
+div {
+    border: 1px dotted #dddddd;
+}
+
+a, a:hover {
+    text-decoration: none;
+}

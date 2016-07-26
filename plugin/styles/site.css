@@ -1,0 +1,8 @@
+div {
+	border: 0 dotted #000;
+}
+.focused{
+	box-shadow: #e0e0e0 5px 5px;
+	border-radius: 10px;
+	margin-bottom: 5px;
+}

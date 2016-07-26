@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<!-- 父路径 -->
+		<!--<base href="/demo/">-->
+		<!-- 页面编码 -->
+		<meta charset="UTF-8">
+		<!-- 响应式布局 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!-- Bootstrap样式文件 -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<!-- 自定义样式文件 -->
+		<link rel="stylesheet" href="styles/site.css">
+		<!-- Jquery脚本文件 -->
+		<script src="scripts/jquery.min.js"></script>
+		<!-- Bootstrap脚本插件文件 -->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<!-- 标签名称 -->
+		<title>form</title>
+	</head>
+	<body class="container">
+		<header class="page-header visible-sm visible-md">
+			<h1>form</h1>
+		</header>
+
+		<div>
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+					<!-- 表单 -->
+					<form class="form-horizontal" method="get" action="css-form.html">
+						<!-- 电子邮件 -->
+						<div class="form-group has-feedback">
+							<label class="col-sm-3 control-label" for="email">Email</label>
+							<div class="col-sm-9">
+								<input type="email" class="form-control" id="email"
+								placeholder="Enter email" required>
+								<span class=""></span>
+							</div>
+						</div>
+						<!-- 用户名 -->
+						<div class="form-group has-feedback">
+							<label class="col-sm-3 control-label" for="username">UserName</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="username"
+								placeholder="Enter username" required>
+								<span class=""></span>
+							</div>
+						</div>
+						<!-- 密码 -->
+						<div class="form-group has-feedback">
+							<label class="col-sm-3 control-label" for="password">PassWord</label>
+							<div class="col-sm-9">
+								<input type="password" class="form-control" id="password"
+								placeholder="Enter password" required>
+								<span class=""></span>
+							</div>
+						</div>
+						<!-- 功能按钮 -->
+						<p class="text-right">
+							<button id="btnSubmit" type="submit" class="btn btn-primary">
+								Submit
+							</button>
+							<button type="reset" class="btn btn-danger">
+								Reset
+							</button>
+						</p>
+						
+						<script>
+							function checkInput(txt){								
+								if(txt.val()==""){
+									txt.parent().parent()
+										.removeClass()
+										.addClass("form-group has-error has-feedback");
+									txt.next().removeClass()
+										.addClass("glyphicon glyphicon-remove form-control-feedback");
+									return false;
+								}else{
+									txt.parent().parent()
+										.removeClass()
+										.addClass("form-group has-success has-feedback");
+									txt.next().removeClass()
+										.addClass("glyphicon glyphicon-ok form-control-feedback");
+									return true;
+								}
+							}
+							$(function(){
+								$("#email").change(function(){checkInput($("#email"));});
+								$("#username").change(function(){checkInput($("#username"));});
+								$("#password").change(function(){checkInput($("#password"));});
+								
+								$("#btnSubmit").click(function(){
+									if(checkInput($("#email")) && checkInput($("#username")) &&
+									checkInput($("#password"))){
+										return true;
+									}
+									return false;
+								});
+							});
+						</script>
+					</form>
+				</div>
+			</div>
+
+		</div>
+
+		<footer class="navbar-fixed-bottom text-center">
+			&copy; 2015
+		</footer>
+	</body>
+</html>

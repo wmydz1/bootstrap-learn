@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<!-- 父路径 -->
+		<!--<base href="/demo/">-->
+		<!-- 页面编码 -->
+		<meta charset="UTF-8">
+		<!-- 响应式布局 -->
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<!-- Bootstrap样式文件 -->
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<!-- 自定义样式文件 -->
+		<link rel="stylesheet" href="styles/site.css">
+		<!-- Jquery脚本文件 -->
+		<script src="scripts/jquery.min.js"></script>
+		<!-- Bootstrap脚本插件文件 -->
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<!-- 标签名称 -->
+		<title>grid</title>
+	</head>
+	<body class="container">
+		<header class="page-header visible-sm visible-md">
+			<h1>grid</h1>
+		</header>
+
+		<div>
+
+			<div id="divBookList" class="table-responsive">
+				
+			</div>
+			<script>
+				$(function(){	
+					//获取JSON				
+					$.getJSON("json/books.json",null,
+						//回调函数					
+						function(result){
+							var tbl = $("<table>")	//创建表
+								.addClass("table table-hover");	//设置表样式
+							tbl.append($("<tr>")
+								.addClass("success")
+								.append($("<td>").html("Id").addClass("danger"))
+								.append($("<td>").html("Title").addClass("warning"))
+								.append($("<td>").html("Price").addClass("info"))
+							);
+							
+							//循环JSON对象数组
+							$(result).each(function(index,book){	
+								var tr = $("<tr>")	//添加一行
+										.append($("<td>").html(book.Id))		//添加编号列
+										.append($("<td>").html(book.Title));	//添加标题列
+											
+								if(parseInt(book.Price)>=30){
+									tr.append($("<td>").html(book.Price).addClass("danger"));
+								}else{
+									tr.append($("<td>").html(book.Price).addClass("success"));	//添加价格列
+								}
+								
+								tr.append($("<td>")	//添加新列
+									.append($("<button type='button'>")	//创建按钮
+										.attr("data-id",book.Id)		//绑定数据Id
+										.addClass("btn btn-danger")		//添加按钮样式
+										.append($("<span>")				//添加按钮字体图标
+											.addClass("glyphicon glyphicon-remove"))	//设置字体图标
+										.append($("<span>").html(" remove"))	//添加按钮显示文本
+										.click(function(){	//配置按钮点击事件
+											var id = $(this).attr("data-id");	//获取按钮绑定的Id
+											alert(id);	
+											//异步提交请求后台处理删除（根据编号删除）
+											// $.post("url?id="+id,null,function(){
+												// //删除成功后处理的回调函数
+											// });
+											$(this).parent().parent().fadeOut(1000);//隐藏当前行
+										})
+									)
+								);
+																	
+								tbl.append(tr);//将当前行tr添加到table
+							});
+							
+							$("#divBookList").append(tbl);	//将表格添加到指定位置
+						}
+					);
+				});
+			</script>
+			
+		</div>
+			<footer class="navbar-fixed-bottom text-center">
+				&copy; 2015
+			</footer>
+	</body>
+</html>
